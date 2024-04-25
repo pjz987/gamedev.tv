@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqrxngsb570cb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jc8sk"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_3lej2"]
+
+[node name="PairOfMeshes" type="Node3D"]
+
+[node name="CubeMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.451354, -0.764401, 0.751358, -6.99575e-16, 0.815259, 0.829411, -1.07184, -0.32189, 0.316398, -0.811828, 0.786982, -1.02362)
+mesh = SubResource("BoxMesh_jc8sk")
+
+[node name="TorusMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.892658, 1.03504, 0.641843, 0.350135, 0.980293, -1.09386, -1.16648, -0.497823, -0.819515, 1.73256, 1.86231, 1.1189)
+mesh = SubResource("TorusMesh_3lej2")
