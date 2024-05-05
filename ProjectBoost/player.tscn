@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcynn8cpew1i8"]
+[gd_scene load_steps=19 format=3 uid="uid://bcynn8cpew1i8"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_m3n01"]
 [ext_resource type="AudioStream" uid="uid://bjopr37dfcjpk" path="res://Audio/SFX - Death Explosion.ogg" id="2_oex3d"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ux6ivcx1ovdp" path="res://Particles/booster_particles.tscn" id="5_gac6t"]
 [ext_resource type="PackedScene" uid="uid://dcecb8hw7dbrv" path="res://Particles/explosion_particles.tscn" id="6_argoc"]
 [ext_resource type="PackedScene" uid="uid://jfwajmrh6ca7" path="res://Particles/success_particles.tscn" id="7_003vg"]
+[ext_resource type="Material" uid="uid://cx8kc4l3xpe6i" path="res://ShipGreenMaterial.tres" id="8_l530u"]
+[ext_resource type="Material" uid="uid://r6dh6l81h8w1" path="res://ShipPurpleMaterial.tres" id="9_1itfe"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_r8r06"]
 
@@ -83,31 +85,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -1, 2.08165e-12)
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.25, 2.08165e-12)
+material_override = ExtResource("8_l530u")
 mesh = SubResource("CylinderMesh_lbf1q")
 
 [node name="Cockpit" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = ExtResource("8_l530u")
 mesh = SubResource("CylinderMesh_gytfn")
 skeleton = NodePath("../..")
 
 [node name="LeftThruster" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333, -0.5, 2.08165e-12)
+material_override = ExtResource("8_l530u")
 mesh = SubResource("PrismMesh_6nij0")
 
 [node name="RightThruster" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.333, -0.5, 2.08165e-12)
+material_override = ExtResource("8_l530u")
 mesh = SubResource("PrismMesh_ntrs3")
 
 [node name="Ring" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.25, 2.08165e-12)
+material_override = ExtResource("9_1itfe")
 mesh = SubResource("TorusMesh_bo410")
 
 [node name="Ring2" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.125, 2.08165e-12)
+material_override = ExtResource("9_1itfe")
 mesh = SubResource("TorusMesh_ev75c")
 
 [node name="Ring3" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
+material_override = ExtResource("9_1itfe")
 mesh = SubResource("TorusMesh_j1fxp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
